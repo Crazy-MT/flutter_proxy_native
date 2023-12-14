@@ -1,10 +1,11 @@
 name: flutter_proxy_native
-description: "A new Flutter plugin project."
-version: 0.0.1
-homepage:
+description: It supports macOS, iOS, and Android platforms, and can obtain the address and port number of the current device's proxy, making it convenient to automatically set the proxy for dio.
+version: 0.0.2
+homepage: https://github.com/Crazy-MT/flutter_proxy_native
+repository: https://github.com/Crazy-MT/flutter_proxy_native
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: '>=3.0.6 <4.0.0'
   flutter: '>=3.3.0'
 
 dependencies:
