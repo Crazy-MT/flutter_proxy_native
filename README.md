@@ -33,10 +33,14 @@ import 'package:flutter_proxy_native/flutter_proxy_native.dart';
 然后，使用 `flutter_proxy_native` 获取系统代理，并设置给 Dio：
 
 ```dart
-var proxy = await FlutterProxyNative.getSystemProxy();
-Dio dio = Dio();
-dio.options = dio.options.copyWith(
-  httpClientAdapter: ProxyHttpClientAdapter(proxy: proxy),
+var proxy = await FlutterProxyNative().getSystemProxy();
+final dio = Dio();
+dio.httpClientAdapter = IOHttpClientAdapter(
+  createHttpClient: () {
+    final client = HttpClient();
+    client.findProxy = (uri) => 'PROXY $proxy';
+    return client;
+  },
 );
 ```
 
